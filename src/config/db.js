@@ -1,4 +1,4 @@
-const mysql = require("mysql2/promise");
+import mysql from "mysql2/promise";
 
 // Create the connection pool. The pool-specific settings are the defaults
 const connPool = mysql.createPool({
@@ -15,4 +15,5 @@ const connPool = mysql.createPool({
 connPool.getConnection().then(() => {
   console.log("CONNECTED");
 });
-module.exports = connPool;
+
+export {connPool};
