@@ -26,8 +26,8 @@ class RecipeController {
 
   static async createRecipe(req, res) {
     try {
-      const { name, ingredients } = req.body;
-      const recipe = await Recipe.createRecipe(name, ingredients);
+      const {titre, type, ingredient } = req.body;
+      const recipe = await Recipe.createRecipe(titre, type, ingredient);
       res.status(201).json(recipe);
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -37,8 +37,8 @@ class RecipeController {
   static async updateRecipe(req, res) {
     try {
       const { id } = req.params;
-      const { name, ingredients } = req.body;
-      const updatedRecipe = await Recipe.updateRecipe(id, name, ingredients);
+      const { titre, type, ingredient } = req.body;
+      const updatedRecipe = await Recipe.updateRecipe(id,titre, type, ingredient);
       res.status(200).json(updatedRecipe);
     } catch (err) {
       res.status(500).json({ error: err.message });

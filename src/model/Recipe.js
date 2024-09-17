@@ -5,6 +5,17 @@ class Recipe {
     const results = await db.query('SELECT * FROM recipes');
     return results;
   }
+  static async checkRecipe(titre) {
+    try {
+      const [rows] = await connPool.query(
+        "SELECT COUNT(*) as count FROM recipes WHERE titre = ?",
+        [titre]
+      );
+      return rows[0].count;
+    } catch (error) {
+      throw new Error("Erreur lors de la vérification de la recette.");
+    }
+  }
 
   static async getRecipeById(id) {
     const [result] = await db.query('SELECT * FROM recipes WHERE id = ?', [id]);
