@@ -1,64 +1,59 @@
+import Recipe from '../model/Recipe.js';
 
-import { connPool } from '../config/db.js';
-
-export default class Recipes{
- getRecipes(){
+class RecipeController {
+  static async getAllRecipes(req, res) {
     try {
-        const connection = connPool.getConnection();
-        const [result] = connection.execute("SELECT * FROM recipes");
-    } catch (error) {
-        throw error.message;
-    }finally{}
- }
+      const recipes = await Recipe.getAllRecipes();
+      res.status(200).json(recipes);
+    } catch (err) {
+      res.status(500).json();
+    }
+  }
+
+  static async getRecipeById(req, res) {
+    try {
+      const { id } = req.params;
+      const recipe = await Recipe.getRecipeById(id);
+      if (recipe) {
+        res.status(200).json(recipe);
+      } else {
+        res.status(404).json({ message: 'Recipe not found' });
+      }
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
+
+  static async createRecipe(req, res) {
+    try {
+      const { name, ingredients } = req.body;
+      const recipe = await Recipe.createRecipe(name, ingredients);
+      res.status(201).json(recipe);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
+
+  static async updateRecipe(req, res) {
+    try {
+      const { id } = req.params;
+      const { name, ingredients } = req.body;
+      const updatedRecipe = await Recipe.updateRecipe(id, name, ingredients);
+      res.status(200).json(updatedRecipe);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
+
+  static async deleteRecipe(req, res) {
+    try {
+      const { id } = req.params;
+      await Recipe.deleteRecipe(id);
+      res.status(204).end();
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
 }
 
-// async function getRecipes(){
-//     try {
-//         const connection = await connPool.getConnection();
-
-//     const [result] = await connection.execute("SELECT * FROM recipes");
-//     return result;
-//     } catch (error) {
-//         throw error.message
-//     }
-
-// }
-
-// async  function getRecipesById(id){
-//    try {
-//     const connection = await connPool.getConnection();
-//     const [result] = await connection.execute("SELECT * FROM recipes WHERE id = ?",
-//         [id]
-//     );
-//     return result;
-//    } catch (error) {
-//     throw error.message;
-//    }
-// } 
-
-// async function editRecipes(id,titre,type,ingredient){
-//    try {
-//     const connection = await connPool.getConnection();
-//     const [result] = await connection.execute("UPDATE repices SET titre = ?,type = ?,ingredient : ? WHERE id = ?",
-//         [titre,type,ingredient,id]
-//     );
-//     return result
-//    } catch (error) {
-//     throw error.message
-//    }
-// }
-
-// async function destroyRecipes(id){
-//     try {
-//         const connection = await connPool.getConnection();
-//     } catch (error) {
-//         throw error.message;
-//     }
-// }
-
-// module.exports = {
-//     getRecipes,
-//     editRecipes,
-//     destroyRecipes,
-//     getRecipesById
-// }
+export default RecipeController;

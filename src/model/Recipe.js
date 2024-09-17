@@ -7,17 +7,17 @@ class Recipe {
   }
 
   static async getRecipeById(id) {
-    const result = await db.query('SELECT * FROM recipes WHERE id = ?', [id]);
+    const [result] = await db.query('SELECT * FROM recipes WHERE id = ?', [id]);
     return result;
   }
 
-  static async createRecipe(name, ingredients) {
-    const result = await db.query('INSERT INTO recipes (name, ingredients) VALUES (?, ?)', [name, ingredients]);
+  static async createRecipe(titre, type, ingredient) {
+    const [result] = await db.query('INSERT INTO recipes (titre, type, ingredient) VALUES (?, ?, ?)', [titre, type, ingredient]);
     return result.insertId;
   }
 
-  static async updateRecipe(id, name, ingredients) {
-    const result = await db.query('UPDATE recipes SET name = ?, ingredients = ? WHERE id = ?', [name, ingredients, id]);
+  static async updateRecipe(id, titre, type, ingredient) {
+    const result = await db.query('UPDATE recipes SET titre = ?, type = ?, ingredient = ? WHERE id = ?', [titre, type, ingredient, id]);
     return result;
   }
 
