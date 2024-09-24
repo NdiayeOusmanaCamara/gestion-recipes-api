@@ -5,7 +5,7 @@ const connPool = mysql.createPool({
   host: "localhost",
   user: "root",
   port: "3306",
-  password: "isik@passer.com",
+  password: "nc41445524",
   database: "gestion_recipes",
   // waitForConnections: true,
   connectTimeout: false,

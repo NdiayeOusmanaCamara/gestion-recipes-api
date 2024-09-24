@@ -1,5 +1,7 @@
 ## gestion-recipe-api
+
 ## Decription
+
 j'ai developper une application de gestion de recettes sous vuejs,
 pour assurer la continuiter du projet, il met demandé creé un API qui permet de gérer des recettes, en fournissant des fonctionnalités CRUD (Create, Read, Update, Delete). en utilisant expressjs et mysql pour la gestion de la base de données.
 
@@ -42,7 +44,7 @@ La méthode request est la façon dont nous distinguons le type d'action que not
 - PATCH: Utilisé pour mettre à jour un ou plusieurs champs d'un élément.
 - DELETE: Utilisé pour supprimer un élément.
 
-Exemple 
+Exemple
 
 - GET
 
@@ -73,14 +75,14 @@ URL: localhost:3060/recipes
         "ingredient": "Laitue, Poulet, Parmesan, Croutons"
         }
 
-- PATCH 
-URL: localhost:3060/recipes/1
+- PATCH
+  URL: localhost:3060/recipes/1
 
-        {
-        "titre": "Salade Césars",
-        "type": "Entrée",
-        "ingredient": "Laitue, Poulet, Parmesan, Croutons"
-        }
+          {
+          "titre": "Salade Césars",
+          "type": "Entrée",
+          "ingredient": "Laitue, Poulet, Parmesan, Croutons"
+          }
 
 -DELETE:
 
@@ -90,8 +92,6 @@ Auteur
 
 Hama Houllah Mangassouba
 
-
 Contributeur
 
 N'Diaye Ousmane Camara
-
