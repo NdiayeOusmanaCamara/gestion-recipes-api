@@ -5,14 +5,14 @@ import recipeRoutes from "./routes/index.js";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 3060;
+const port = 3070;
 app.use(bodyParser.json());
 app.use(recipeRoutes);
 const connect = connPool.getConnection();
 
 console.log(connect);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Bonjour les simploniens");
 });
 
