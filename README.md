@@ -1,54 +1,53 @@
-## gestion-recipe-api
+## Gestion de Recettes - Application Node.js
+## Description
 
-## Decription
-
-j'ai developper une application de gestion de recettes sous vuejs,
-pour assurer la continuiter du projet, il met demandé creé un API qui permet de gérer des recettes, en fournissant des fonctionnalités CRUD (Create, Read, Update, Delete). en utilisant expressjs et mysql pour la gestion de la base de données.
+Cette application est un gestionnaire de recettes de cuisine développé avec Node.js et Express pour le backend, ainsi que MySQL pour la gestion des données. Elle permet de créer, récupérer, mettre à jour et supprimer des recettes. L'application utilise Jasmine pour les tests unitaires afin de valider les différentes fonctionnalitésUD (Create, Read, Update, Delete). en utilisant expressjs et mysql pour la gestion de la base de données.
 
 ## prérequis
 
-Avant de commencer, installé les éléments suivants :
+Avant de démarrer, assurez-vous d'avoir installé les logiciels suivants :
 
-node.js
-Mysql
-Postman (pour faite le test)
+- Node.js (version 14+)
+- MySQL (version 5.7+)
+- npm (le gestionnaire de paquets Node.js)
 
+## Technologies Utilisées
+- **Node.js** : Plateforme JavaScript côté serveur.
+- **Express** : Framework web pour Node.js.
+- **MySQL** : Système de gestion de base de données relationnelle.
+- **Jasmine** : Framework de tests pour JavaScript.
+- **Postman** : Utilisé pour tester l'API.
 ## Installation
 
-Suivez ces étapes pour configurer le projet sur votre machine locale :
+1. Clonez le dépôt sur votre machine locale :
+```
+git clone https://github.com/Mangassouba/gestion-recipes-api.git
+```
+2. Accédez au répertoire du projet :
+```
+cd gestion-recipes-api
+```
+3. Installez les dépendances du projet :
+```
+npm install
+```
+## Utilisation
 
-**Clonez le repository** :
-
-    git clone https://github.com/Mangassouba/gestion-recipes-api.git
-
-Accédez au dossier du projet :
-
-    cd gestion-recipes-api
-
-Installez les dépendances :
-
-    npm install
-
-Utilisation
-
-Pour démarrer l'application, exécutez la commande suivante :
-
-    npm start
-
-## Méthodes de requête
-
-La méthode request est la façon dont nous distinguons le type d'action que notre point de terminaison est « invité » à effectuer.
-
-- GET: Utilisé pour récupérer un seul élément ou une collection d'éléments.
-- POST: Utilisé lors de la création de nouveaux éléments, par exemple un nouvel recettes.
-- PATCH: Utilisé pour mettre à jour un ou plusieurs champs d'un élément.
-- DELETE: Utilisé pour supprimer un élément.
+1. Pour démarrer l'application, exécutez la commande suivante :
+```
+ npm start
+```
+2. Utilisez Postman pour tester les endpoints disponibles :
+- **GET** ``/recipes`` : Récupérer toutes les recettes.
+- **GET** ``/recipes/:id`` : Récupérer une recette spécifique par son ID.
+- **POST** ``/recipes`` : Créer une nouvelle recette.
+- **PUT** ``/recipes/:id`` : Mettre à jour une recette existante.
+- **DELETE** ``/recipes/:id`` : Supprimer une recette.
 
 Exemple
 
 - GET
-
-url: localhost:3060/recipes
+URL: localhost:3060/recipes
 
         [
                 {
@@ -75,7 +74,7 @@ URL: localhost:3060/recipes
         "ingredient": "Laitue, Poulet, Parmesan, Croutons"
         }
 
-- PATCH
+- PUT
   URL: localhost:3060/recipes/1
 
           {
@@ -88,10 +87,25 @@ URL: localhost:3060/recipes
 
 URL: localhost:3060/recipes/1
 
-Auteur
+## Tests
+L'application utilise Jasmine pour les tests unitaires. Pour exécuter les tests, utilisez la commande suivante :
+```
+npm test
+```
+Exemple:
 
-Hama Houllah Mangassouba
+![](/src/assets/images/img%20test.JPG)
+
+
+Les tests incluent la vérification des fonctionnalités principales telles que la création, la récupération, la mise à jour, et la suppression des recettes.
+
+
+
+
+## Auteur
+
+[Hama Houllah Mangassouba](https://github.com/Mangassouba)
 
 Contributeur
 
-N'Diaye Ousmane Camara
+[N'Diaye Ousmane Camara](https://github.com/NdiayeOusmanaCamara)
