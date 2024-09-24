@@ -8,7 +8,7 @@ describe("Recipe tests", () => {
     const result = await Recipe.createRecipe(
       recipe.titre,
       recipe.type,
-      recipe.ingredient
+      recipe.ingredient,
     );
     recipeId = result.insertId;
     const recipeCreated = await Recipe.getRecipeById(recipeId);
@@ -22,18 +22,25 @@ describe("Recipe tests", () => {
       const result = await Recipe.createRecipe(
         recipe.titre,
         recipe.type,
-        recipe.ingredient
+        recipe.ingredient,
       );
       recipeId = result.insertId;
       const recipeCreated = await Recipe.getRecipeById(recipeId);
       expect(recipeId).toBeNull();
       expect(recipeCreated).toEqual([]);
-    } catch (error) {}
+    } catch (err) {
+      err.message;
+    }
   });
 
   it("Can get all recipes", async () => {
     const getAll = await Recipe.getAllRecipes();
     expect(getAll).not.toBeNull();
+  });
+
+  it("Can get recipes By Id", async () => {
+    const getById = await Recipe.getRecipeById();
+    expect(getById).not.toBeNull();
   });
 
   it("Can be delete recipes", async () => {
@@ -52,7 +59,7 @@ describe("Recipe tests", () => {
       recipe.id,
       recipe.titre,
       recipe.type,
-      recipe.ingredient
+      recipe.ingredient,
     );
     expect(update).not.toBeNull();
   });

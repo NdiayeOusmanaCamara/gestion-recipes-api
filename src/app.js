@@ -1,7 +1,7 @@
-import  connPool  from './config/db.js';
-import express from 'express';
+import connPool from "./config/db.js";
+import express from "express";
 // import bodyParser from 'body-parser';
-import recipeRoutes from './routes/index.js';
+import recipeRoutes from "./routes/index.js";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -13,10 +13,9 @@ const connect = connPool.getConnection();
 console.log(connect);
 
 app.get("/", (req, res) => {
-    res.send("Bonjour les simploniens");
-  });
-
+  res.send("Bonjour les simploniens");
+});
 
 app.listen(port, () => {
-    console.log(`L'application est en ecoute sur port ${port}`);
-  });
+  console.log(`L'application est en ecoute sur port ${port}`);
+});
