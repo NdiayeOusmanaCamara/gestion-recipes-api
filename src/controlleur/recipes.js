@@ -3,7 +3,7 @@ import Recipe from '../model/Recipe.js';
 class RecipeController {
   static async getAllRecipes(req, res) {
     try {
-      const recipes = await Recipe.getAllRecipes();
+      const [recipes] = await Recipe.getAllRecipes();
       res.status(200).json(recipes);
     } catch (err) {
       res.status(500).json();

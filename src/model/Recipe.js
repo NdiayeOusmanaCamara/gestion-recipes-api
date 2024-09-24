@@ -17,6 +17,11 @@ class Recipe {
     }
   }
 
+  static async getRecipeByTitle(titre) {
+    const [rows] = await db.query('SELECT * FROM recipes WHERE titre = ?', [titre]);
+    return rows[0];
+  }
+
   static async getRecipeById(id) {
     const [result] = await db.query('SELECT * FROM recipes WHERE id = ?', [id]);
     return result;
@@ -24,7 +29,7 @@ class Recipe {
 
   static async createRecipe(titre, type, ingredient) {
     const [result] = await db.query('INSERT INTO recipes (titre, type, ingredient) VALUES (?, ?, ?)', [titre, type, ingredient]);
-    return result.insertId;
+    return result;
   }
 
   static async updateRecipe(id, titre, type, ingredient) {
