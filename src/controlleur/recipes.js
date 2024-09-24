@@ -32,8 +32,9 @@ class RecipeController {
       if (!titre || !type || !ingredient) {
         return res.status(400).json({ message: "All fields are required" });
       }
-      const recipe = await Recipe.createRecipe(titre, type, ingredient);
-      res.status(201).json(recipe);
+       await Recipe.createRecipe(titre, type, ingredient);
+      res.status(201).json({"message": "Recette ajouter avec succès"});
+      
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: "Internal Server Error" });
@@ -54,7 +55,7 @@ class RecipeController {
         ingredient,
       );
       if (updatedRecipe) {
-        res.status(200).json(updatedRecipe);
+        res.status(200).json({"message": "Recette mise à jour avec succès"});
       } else {
         res.status(404).json({ message: "Recipe not found" });
       }
@@ -69,7 +70,7 @@ class RecipeController {
       const { id } = req.params;
       const result = await Recipe.deleteRecipe(id);
       if (result) {
-        res.status(204).end();
+        res.status(204).end({"message": "Recette supprimée avec succès"});
       } else {
         res.status(404).json({ message: "Recipe not found" });
       }

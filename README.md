@@ -33,21 +33,17 @@ npm install
 ```
 ## Utilisation
 
-1. Pour démarrer l'application, exécutez la commande suivante :
+Pour démarrer l'application, exécutez la commande suivante :
 ```
  npm start
 ```
-2. Utilisez Postman pour tester les endpoints disponibles :
-- **GET** ``/recipes`` : Récupérer toutes les recettes.
-- **GET** ``/recipes/:id`` : Récupérer une recette spécifique par son ID.
-- **POST** ``/recipes`` : Créer une nouvelle recette.
-- **PUT** ``/recipes/:id`` : Mettre à jour une recette existante.
-- **DELETE** ``/recipes/:id`` : Supprimer une recette.
+## Endpoints de l'API
 
-Exemple
+## GET /recettes
 
-- GET
-URL: localhost:3060/recipes
+- Description : Récupère toutes les recettes.
+
+- Réponse 
 
         [
                 {
@@ -64,18 +60,31 @@ URL: localhost:3060/recipes
                 }
             ]
 
-- POST
+## POST /recettes
+- Description : Crée une nouvelle recette.
 
-URL: localhost:3060/recipes
+- Corps de la requête :
+```
+{
 
-        {
-        "titre": "Salades Césars",
-        "type": "Entrée",
-        "ingredient": "Laitue, Poulet, Parmesan, Croutons"
-        }
+"titre": "Salades Césars",
+"type": "Entrée",
+"ingredient": "Laitue, Poulet, Parmesan, Croutons"
 
-- PUT
-  URL: localhost:3060/recipes/1
+    }
+ ```
+- Reponse:
+```
+{
+  "message": "Recette ajouter avec succès"
+}
+```
+
+## PUT /recettes/id
+
+- Description : Met à jour une recette existante.
+
+- Corps de la requête :
 
           {
           "titre": "Salade Césars",
@@ -83,11 +92,23 @@ URL: localhost:3060/recipes
           "ingredient": "Laitue, Poulet, Parmesan, Croutons"
           }
 
--DELETE:
+- Réponse :
+```
 
-URL: localhost:3060/recipes/1
+{
+  "message": "Recette mise à jour avec succès"
+}
+```
+## DELETE /recettes/id
 
-## Tests
+- Description : Supprime une recette par ID.
+- Réponse :
+```
+{
+  "message": "Recette supprimée avec succès"
+}
+```
+## les tests unitaires
 L'application utilise Jasmine pour les tests unitaires. Pour exécuter les tests, utilisez la commande suivante :
 ```
 npm test
