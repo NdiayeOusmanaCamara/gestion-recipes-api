@@ -4,7 +4,7 @@ services:
     container_name: gestion-recipes-api
     env_file: .env
     ports:
-      - "3060:3060" # Port d'accès à votre application
+      - "3070:3070" # Port d'accès à votre application
     depends_on:
       - db
     environment:
@@ -12,6 +12,8 @@ services:
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
+    volumes:
+      - .:/usr/src/app
 
   db:
     image: mysql:8
@@ -22,7 +24,7 @@ services:
       - db-config:/etc/mysql
       - db-data:/var/lib/mysql
     ports:
-      - "5306:3306" # Port de MySQL
+      - "3307:3306" # Port de MySQL
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}

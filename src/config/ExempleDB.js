@@ -1,19 +1,24 @@
-import mysql from "mysql2/promise";
+import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-// Create the connection pool. The pool-specific settings are the defaults
+dotenv.config();
+
 const connPool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  port: "3306",
-  password: "mot de passe",
-  database: "nom base de donnée",
-  // waitForConnections: true,
-  connectTimeout: false,
-  // connectionLimit: 10000000,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  port: process.env.DB_PORT,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+ 
+  waitForConnections: true,
+  connectionLimit: 10,
+  connectTimeout: 10000,
 });
 
 connPool.getConnection().then(() => {
-  console.log("CONNECTED");
+  console.log('CONNECTED');
+}).catch(err => {
+  console.error('Error connecting to the database:', err);
 });
 
 export default connPool;

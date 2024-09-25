@@ -9,9 +9,10 @@ const connPool = mysql.createPool({
   port: process.env.DB_PORT,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  // waitForConnections: true,
-  connectTimeout: false,
-  // connectionLimit: 10000000,
+ 
+  waitForConnections: true,
+  connectionLimit: 10,
+  connectTimeout: 10000,
 });
 
 connPool.getConnection().then(() => {
