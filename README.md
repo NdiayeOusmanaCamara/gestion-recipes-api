@@ -39,7 +39,7 @@ Pour démarrer l'application, exécutez la commande suivante :
 ```
 ## Endpoints de l'API
 
-## GET /recettes
+## GET /recipes
 
 - Description : Récupère toutes les recettes.
 
@@ -60,7 +60,7 @@ Pour démarrer l'application, exécutez la commande suivante :
                 }
             ]
 
-## POST /recettes
+## POST /recipes
 - Description : Crée une nouvelle recette.
 
 - Corps de la requête :
@@ -80,7 +80,7 @@ Pour démarrer l'application, exécutez la commande suivante :
 }
 ```
 
-## PUT /recettes/id
+## PUT /recipes/id
 
 - Description : Met à jour une recette existante.
 
@@ -99,7 +99,7 @@ Pour démarrer l'application, exécutez la commande suivante :
   "message": "Recette mise à jour avec succès"
 }
 ```
-## DELETE /recettes/id
+## DELETE /recipes/id
 
 - Description : Supprime une recette par ID.
 - Réponse :
