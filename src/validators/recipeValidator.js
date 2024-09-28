@@ -1,6 +1,6 @@
 import { check, param, validationResult } from "express-validator";
 import { StatusCodes } from "http-status-codes";
-import Recipe from "../model/Recipe.js";
+import Recipe from "../models/Recipe.js";
 
 const addRequestValidator = [
   check("titre")
@@ -35,8 +35,8 @@ const deleteRequestValidator = [
     .withMessage("Id est obligatoire!")
     .bail()
     .custom(async (value) => {
-      const result = await Recipe.deleteRecipe(value);
-      if (result === 0) {
+      const recipe = await Recipe.getRecipeById(value);
+      if (!recipe) {
         throw new Error("Cette recette n'existe pas!");
       }
       return true;
