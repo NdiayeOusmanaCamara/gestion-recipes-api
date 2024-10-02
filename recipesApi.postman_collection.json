@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "82517dcc-bc65-4d4a-a33a-1570d374b180",
+		"name": "recipesApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38098617"
+	},
+	"item": [
+		{
+			"name": "GET_RECETTES",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST_RECETTES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \r\n        \"name\": \"makoroni\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3070/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3070",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_RECETTES",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \r\n        \"name\": \"Hamburger\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3070/category/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3070",
+					"path": [
+						"category",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_RECETTES",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \r\n        \"name\": \"Hamburger\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3070/category/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3070",
+					"path": [
+						"category",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

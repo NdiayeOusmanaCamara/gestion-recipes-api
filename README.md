@@ -140,11 +140,18 @@ Exemple:
 ![](/src/assets/images/img%20test.JPG)
 
 Les tests incluent la vérification des fonctionnalités principales telles que la création, la récupération, la mise à jour, et la suppression des recettes.
+## Analyse et formatage de code
+L'analyse statique du code s'effectue à l'aide d'ESLint, tandis que le formatage est assuré par Prettier. Ces outils sont configurés pour être intégrés dans votre pipeline de développement afin de garantir un code propre et homogène
+
+## Exécuter l'analyse du code :
+```
+npm run lint
+```
+## Exécuter le formatage automatique :
+```
+npm run format
+```
 
 ## Auteur
-
-[Hama Houllah Mangassouba](https://github.com/Mangassouba)
-
-Contributeur
 
 [N'Diaye Ousmane Camara](https://github.com/NdiayeOusmanaCamara)
