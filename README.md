@@ -140,6 +140,22 @@ Exemple:
 ![](/src/assets/images/img%20test.JPG)
 
 Les tests incluent la vérification des fonctionnalités principales telles que la création, la récupération, la mise à jour, et la suppression des recettes.
+
+## fichier .env.example :
+C'est un modèle du fichier .env. Il contient les noms des variables d'environnement que l'utilisateur doit configurer pour que l'application fonctionne correctement. Ce fichier est inclus dans le dépôt afin que les autres développeurs puissent savoir quelles variables sont nécessaires et les renseigner avec leurs propres valeurs locales.
+
+
+Voici un exemple des variables présentes dans le fichier .env.example :
+
+![](/src/assets/images/env.JPG)
+
+- **DB_HOST** : L'hôte de la base de données (généralement localhost pour les environnements locaux).
+- **DB_USER** : Le nom d'utilisateur MySQL (à définir par chaque utilisateur en fonction de leur configuration locale).
+- **DB_PORT** : Le port utilisé par le serveur MySQL (par défaut, c'est 3306).
+- **DB_PASSWORD** : Le mot de passe de l'utilisateur MySQL (chaque utilisateur doit entrer son mot de passe ici).
+- **DB_NAME** : Le nom de la base de données utilisée par l'application (par défaut gestion-recipes dans cet exemple).
+- **MYSQL_ROOT_PASSWORD**: Le mot de passe de l'utilisateur root de MySQL, nécessaire pour certaines configurations initiales.
+- **MYSQL_DATABASE** : Le nom de la base de données MySQL que l'application va utiliser (ici, gestion-recipes).
 ## Analyse et formatage de code
 L'analyse statique du code s'effectue à l'aide d'ESLint, tandis que le formatage est assuré par Prettier. Ces outils sont configurés pour être intégrés dans votre pipeline de développement afin de garantir un code propre et homogène
 
