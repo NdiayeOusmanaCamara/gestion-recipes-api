@@ -6,7 +6,7 @@ services:
     container_name: gestion-recipes-api
     env_file: .env
     ports:
-      - "3002:3002" # Port d'accès à votre application
+      - "3070:3070" # Port d'accès à votre application
     depends_on:
       - db
     environment:
