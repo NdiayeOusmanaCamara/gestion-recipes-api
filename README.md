@@ -151,6 +151,16 @@ npm run lint
 ```
 npm run format
 ```
+## Containerisation avec Docker:
+- **Lien vers l'image DockerHub:** [image Docker](https://hub.docker.com/r/ndiayecousmaneamara24/gestion-recipes-api-app)
+- **Telecharger l'image**
+```
+docker pull ndiayecousmaneamara24/gestion-recipes-api-app
+```
+## Lancer les conteneurs Docker:
+```
+docker-compose up -d
+```
 
 ## Auteur
 

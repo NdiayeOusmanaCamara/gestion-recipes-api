@@ -1,10 +1,12 @@
+version: '3.8'
+
 services:
   app:
     build: .
     container_name: gestion-recipes-api
     env_file: .env
     ports:
-      - "3070:3070" # Port d'accès à votre application
+      - "3002:3002" # Port d'accès à votre application
     depends_on:
       - db
     environment:
@@ -18,7 +20,8 @@ services:
   db:
     image: mysql:8
     restart: always
-    container_name: gestion_recipes
+    container_name: gestion_recipes_db
+    command: --default-authentication-plugin=mysql_native_password
     env_file: .env
     volumes:
       - db-config:/etc/mysql

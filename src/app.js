@@ -5,7 +5,7 @@ import recipeRoutes from "./routes/index.js";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 3070;
+const port = 3002;
 app.use(bodyParser.json());
 app.use(recipeRoutes);
 const connect = connPool.getConnection();
