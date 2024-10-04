@@ -189,6 +189,11 @@ Ce projet utilise Docker pour la containerisation, ce qui permet de déployer fa
 ```
  docker-compose up --build 
 ```
+- **Pour lancer docker utiliser cette commande:**
+```
+docker-compose up
+```
+
 - **Connexion au service MySQL:**
  ```
  docker exec -it recipes_mysql mysql -u root -p
