@@ -19,7 +19,7 @@ const addRequestValidator = [
       return true;
     }),
 
-  check("ingredients")
+  check("ingredient")
     .not()
     .isEmpty()
     .withMessage("Les ingrédients sont obligatoires!")

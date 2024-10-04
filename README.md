@@ -25,7 +25,7 @@ Avant de démarrer, assurez-vous d'avoir installé les logiciels suivants :
 1. Clonez le dépôt sur votre machine locale :
 
 ```
-git clone https://github.com/Mangassouba/gestion-recipes-api.git
+git clone https://github.com/NdiayeOusmanaCamara/gestion-recipes-api.git
 ```
 
 2. Accédez au répertoire du projet :
@@ -142,8 +142,8 @@ Exemple:
 Les tests incluent la vérification des fonctionnalités principales telles que la création, la récupération, la mise à jour, et la suppression des recettes.
 
 ## fichier .env.example :
-C'est un modèle du fichier .env. Il contient les noms des variables d'environnement que l'utilisateur doit configurer pour que l'application fonctionne correctement. Ce fichier est inclus dans le dépôt afin que les autres développeurs puissent savoir quelles variables sont nécessaires et les renseigner avec leurs propres valeurs locales.
 
+C'est un modèle du fichier .env. Il contient les noms des variables d'environnement que l'utilisateur doit configurer pour que l'application fonctionne correctement. Ce fichier est inclus dans le dépôt afin que les autres développeurs puissent savoir quelles variables sont nécessaires et les renseigner avec leurs propres valeurs locales.
 
 Voici un exemple des variables présentes dans le fichier .env.example :
 
@@ -156,27 +156,50 @@ Voici un exemple des variables présentes dans le fichier .env.example :
 - **DB_NAME** : Le nom de la base de données utilisée par l'application (par défaut gestion-recipes dans cet exemple).
 - **MYSQL_ROOT_PASSWORD**: Le mot de passe de l'utilisateur root de MySQL, nécessaire pour certaines configurations initiales.
 - **MYSQL_DATABASE** : Le nom de la base de données MySQL que l'application va utiliser (ici, gestion-recipes).
+
 ## Analyse et formatage de code
+
 L'analyse statique du code s'effectue à l'aide d'ESLint, tandis que le formatage est assuré par Prettier. Ces outils sont configurés pour être intégrés dans votre pipeline de développement afin de garantir un code propre et homogène
 
 ## Exécuter l'analyse du code :
+
 ```
 npm run lint
 ```
+
 ## Exécuter le formatage automatique :
+
 ```
 npm run format
 ```
+
 ## Containerisation avec Docker:
+Ce projet utilise Docker pour la containerisation, ce qui permet de déployer facilement l'API dans n'importe quel environnement.
+
+## Instructions pour Docker :
+
 - **Lien vers l'image DockerHub:** [image Docker](https://hub.docker.com/r/ndiayecousmaneamara24/gestion-recipes-api-app)
-- **Telecharger l'image**
+- **Pour construire le conteneurs Docker:**
 ```
-docker pull ndiayecousmaneamara24/gestion-recipes-api-app
+ docker-compose up --build 
 ```
-## Lancer les conteneurs Docker:
+- **Connexion au service MySQL:**
+ ```
+ docker exec -it gestion-recipes-api-app mysql -u root -p
 ```
-docker-compose up -d
+- **Créer la base de données et les tables :**
 ```
+ DROP DATABASE IF EXISTS `gestion-recipes`;
+   CREATE DATABASE IF NOT EXISTS  `gestion-recipes`;
+   USE gestion-recipes;
+
+   CREATE TABLE IF NOT EXISTS recipes (
+     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+     titre VARCHAR(100) NOT NULL UNIQUE,
+     type VARCHAR (50) NOT NULL,
+     ingredient text NOT NULL
+   );
+   ```
 
 ## Auteur
 

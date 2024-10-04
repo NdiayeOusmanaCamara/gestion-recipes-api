@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: gestion-recipes
 -- ------------------------------------------------------
--- Server version	8.4.0
+-- Server version	9.0.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,11 +24,12 @@ DROP TABLE IF EXISTS `recipes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `recipes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `type` text NOT NULL,
-  `titre` text NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `type` varchar(50) NOT NULL,
   `ingredient` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `titre` (`titre`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +38,7 @@ CREATE TABLE `recipes` (
 
 LOCK TABLES `recipes` WRITE;
 /*!40000 ALTER TABLE `recipes` DISABLE KEYS */;
-INSERT INTO `recipes` VALUES (1,'Dessert','Chocolate Cake','Flour, Sugar, Cocoa Powder, Eggs, Butter, Baking Powder'),(3,'Appetizer','Caesar Salad','Lettuce, Croutons, Parmesan Cheese, Caesar Dressing, Chicken Breast'),(4,'Dessert','Apple Pie','Apples, Flour, Sugar, Cinnamon, Butter, Pie Crust'),(5,'Main Course','Grilled Chicken','Chicken Breast, Olive Oil, Lemon, Garlic, Rosemary, Salt, Pepper'),(9,'Dessert','Apple Pie','Apples, Flour, Sugar, Cinnamon, Butter, Pie Crust'),(10,'Main Course','Grilled Chicken','Chicken Breast, Olive Oil, Lemon, Garlic, Rosemary, Salt, Pepper'),(11,'Dessert1244','Chocolate lxkxlCake','Flounr, Sugannr, Cocoa Powder, Eggs, Butter, Baking Powder'),(12,'Dessert','Chocolate Cake','Flour, Sugar, Cocoa Powder, Eggs, Butter, Baking Powder'),(13,'Main Course','Spaghetti Bolognese','Spaghetti, Ground Beef, Tomatoes, Onion, Garlic, Olive Oil, Basil'),(15,'Dessert','Apple Pie','Apples, Flour, Sugar, Cinnamon, Butter, Pie Crust'),(16,'Main Course','Grilled Chicken','Chicken Breast, Olive Oil, Lemon, Garlic, Rosemary, Salt, Pepper'),(17,'dessert','crepe','farime'),(18,'dessert','crepe','farime'),(19,'dessert','crepe','farime');
+INSERT INTO `recipes` VALUES (1,'Spaghetti Carbonara','Pasta','Spaghetti, Bacon, Eggs, Parmesan, Pepper'),(2,'Lasagnes','entrée','Viande hachée, Sauce tomate, Fromage'),(3,'Chocolate Cake','Dessert','Flour, Cocoa Powder, Sugar, Eggs, Butter, Baking Powder'),(4,'Caesar Salad','Salad','Romaine Lettuce, Croutons, Parmesan, Caesar Dressing, Chicken'),(5,'Vegetable Stir Fry','Vegan','Broccoli, Bell Pepper, Soy Sauce, Tofu, Garlic, Ginger'),(6,'Margarita Pizza','Pizza','Pizza Dough, Tomato Sauce, Mozzarella, Basil, Olive Oil'),(7,'Tacos al Pastor','Mexican','Pork, Pineapple, Onion, Cilantro, Corn Tortillas, Salsa Verde'),(9,'Sushi Rolls','Japanese','Rice, Nori, Salmon, Cucumber, Avocado, Soy Sauce'),(10,'Beef Stroganoff','Main Course','Beef, Mushrooms, Sour Cream, Onion, Garlic, Butter'),(11,'Spaghetti Carbonaraa','dessert','Spaghetti, Bacon, Eggs, Parmesan, Pepper');
 /*!40000 ALTER TABLE `recipes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-02  9:37:44
+-- Dump completed on 2024-10-04  9:59:53

@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "82517dcc-bc65-4d4a-a33a-1570d374b180",
-		"name": "recipesApi",
+		"_postman_id": "d5ba8c72-4e2c-4774-a81b-e0f3009db873",
+		"name": "recetteAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38098617"
 	},
 	"item": [
 		{
-			"name": "GET_RECETTES",
+			"name": "GET_RECIPES",
 			"request": {
 				"method": "GET",
 				"header": []
@@ -15,41 +15,21 @@
 			"response": []
 		},
 		{
-			"name": "POST_RECETTES",
+			"name": "POST_RECIPES",
 			"request": {
 				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n       \r\n        \"name\": \"makoroni\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3070/category",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3070",
-					"path": [
-						"category"
-					]
-				}
+				"header": []
 			},
 			"response": []
 		},
 		{
-			"name": "PUT_RECETTES",
+			"name": "PUT_RECIPES",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \r\n        \"name\": \"Hamburger\"\r\n    }",
+					"raw": "{\r\n  \"title\": \"Updated Saalad\",\r\n  \"type\": \"spagueti\",\r\n  \"engredient\": \"Lettuce, Tomato, Avocado\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -57,14 +37,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3070/category/2",
+					"raw": "http://localhost:3000/api/recipes/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3070",
+					"port": "3000",
 					"path": [
-						"category",
+						"api",
+						"recipes",
 						"2"
 					]
 				}
@@ -72,13 +53,13 @@
 			"response": []
 		},
 		{
-			"name": "DELETE_RECETTES",
+			"name": "DELETE_RECIPES",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n       \r\n        \"name\": \"Hamburger\"\r\n    }",
+					"raw": "{\r\n  \"title\": \"Updated Saalad\",\r\n  \"type\": \"spagueti\",\r\n  \"engredient\": \"Lettuce, Tomato, Avocado\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,14 +67,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3070/category/2",
+					"raw": "http://localhost:3000/api/recipes/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3070",
+					"port": "3000",
 					"path": [
-						"category",
+						"api",
+						"recipes",
 						"2"
 					]
 				}
