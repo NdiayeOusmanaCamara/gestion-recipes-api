@@ -1,8 +1,13 @@
-## Gestion de Recettes - Application Node.js
+## API de Gestion des Recettes
 
 ## Description
+Cette API facilite la gestion des recettes culinaires avec des opérations CRUD (Créer, Lire, Mettre à jour, Supprimer). Elle est développée avec Express.js et repose sur MySQL pour la base de données. Le projet intègre des tests unitaires, des outils de validation et de formatage de code (ESLint, Prettier), et est containerisé avec Docker pour simplifier le déploiement.
 
-Cette application est un gestionnaire de recettes de cuisine développé avec Node.js et Express pour le backend, ainsi que MySQL pour la gestion des données. Elle permet de créer, récupérer, mettre à jour et supprimer des recettes. L'application utilise Jasmine pour les tests unitaires afin de valider les différentes fonctionnalitésUD (Create, Read, Update, Delete). en utilisant expressjs et mysql pour la gestion de la base de données.
+## Objectif
+- Développer et tester une API RESTful avec Express.js et MySQL.
+- Intégrer des outils d'analyse et de formatage de code.
+- Containeriser l'API avec Docker pour faciliter le déploiement.
+- Déployer l'API dans un environnement conteneurisé via DockerHub.
 
 ## prérequis
 
@@ -10,15 +15,8 @@ Avant de démarrer, assurez-vous d'avoir installé les logiciels suivants :
 
 - Node.js (version 14+)
 - MySQL (version 5.7+)
-- npm (le gestionnaire de paquets Node.js)
-
-## Technologies Utilisées
-
-- **Node.js** : Plateforme JavaScript côté serveur.
-- **Express** : Framework web pour Node.js.
-- **MySQL** : Système de gestion de base de données relationnelle.
-- **Jasmine** : Framework de tests pour JavaScript.
-- **Postman** : Utilisé pour tester l'API.
+- Postman (pour tester l'API)
+- Docker (pour la containerisation)
 
 ## Installation
 
@@ -40,6 +38,28 @@ cd gestion-recipes-api
 npm install
 ```
 
+
+## Configuration de la base de données:
+1. Assurez-vous que MySQL est en cours d'exécution sur votre machine.
+2. Créez une base de données pour le projet (par exemple, gestion-recipes).
+3. Modifiez le fichier .env.example le nommant .env pour y insérer les informations de connexion à la base de données, ces modifications sont valables pour le fichier .env.test.exampl pour l'utilisation de l'image docker.
+
+Exemple de fichier .env 
+```
+DB_HOST=localhost
+DB_USER=USER
+DB_PASSWORD=PASSWORD
+DB_NAME=NAME_DB
+DB_PORT=PORT
+WFC=true
+CL=10
+QL=0
+
+MYSQL_ROOT_USER=USER
+MYSQL_ROOT_PASSWORD=PASSWORD
+MYSQL_DATABASE=NAME_DB
+```
+
 ## Utilisation
 
 Pour démarrer l'application, exécutez la commande suivante :
@@ -48,6 +68,7 @@ Pour démarrer l'application, exécutez la commande suivante :
  npm start
 ```
 
+L'API sera accessible à `http://localhost:3000`.
 ## Endpoints de l'API
 
 ## GET /recipes
@@ -141,21 +162,6 @@ Exemple:
 
 Les tests incluent la vérification des fonctionnalités principales telles que la création, la récupération, la mise à jour, et la suppression des recettes.
 
-## fichier .env.example :
-
-C'est un modèle du fichier .env. Il contient les noms des variables d'environnement que l'utilisateur doit configurer pour que l'application fonctionne correctement. Ce fichier est inclus dans le dépôt afin que les autres développeurs puissent savoir quelles variables sont nécessaires et les renseigner avec leurs propres valeurs locales.
-
-Voici un exemple des variables présentes dans le fichier .env.example :
-
-![](/src/assets/images/env.JPG)
-
-- **DB_HOST** : L'hôte de la base de données (généralement localhost pour les environnements locaux).
-- **DB_USER** : Le nom d'utilisateur MySQL (à définir par chaque utilisateur en fonction de leur configuration locale).
-- **DB_PORT** : Le port utilisé par le serveur MySQL (par défaut, c'est 3306).
-- **DB_PASSWORD** : Le mot de passe de l'utilisateur MySQL (chaque utilisateur doit entrer son mot de passe ici).
-- **DB_NAME** : Le nom de la base de données utilisée par l'application (par défaut gestion-recipes dans cet exemple).
-- **MYSQL_ROOT_PASSWORD**: Le mot de passe de l'utilisateur root de MySQL, nécessaire pour certaines configurations initiales.
-- **MYSQL_DATABASE** : Le nom de la base de données MySQL que l'application va utiliser (ici, gestion-recipes).
 
 ## Analyse et formatage de code
 
@@ -178,20 +184,20 @@ Ce projet utilise Docker pour la containerisation, ce qui permet de déployer fa
 
 ## Instructions pour Docker :
 
-- **Lien vers l'image DockerHub:** [image Docker](https://hub.docker.com/r/ndiayecousmaneamara24/gestion-recipes-api-app)
+- **Lien vers l'image DockerHub:** [image Docker](https://hub.docker.com/r/ndiayecousmaneamara24/recipes)
 - **Pour construire le conteneurs Docker:**
 ```
  docker-compose up --build 
 ```
 - **Connexion au service MySQL:**
  ```
- docker exec -it gestion-recipes-api-app mysql -u root -p
+ docker exec -it recipes_mysql mysql -u root -p
 ```
 - **Créer la base de données et les tables :**
 ```
- DROP DATABASE IF EXISTS `gestion-recipes`;
-   CREATE DATABASE IF NOT EXISTS  `gestion-recipes`;
-   USE gestion-recipes;
+ DROP DATABASE IF EXISTS gestion_recipes;
+   CREATE DATABASE IF NOT EXISTS  `gestion_recipes`;
+   USE gestion_recipes;
 
    CREATE TABLE IF NOT EXISTS recipes (
      id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -200,6 +206,9 @@ Ce projet utilise Docker pour la containerisation, ce qui permet de déployer fa
      ingredient text NOT NULL
    );
    ```
+   ## Documentation et Collection Postman
+- **Exporter la collection** :`recetteAPI.postman_collection`
+- **Importer dans Postman** et exécuter les requêtes.
 
 ## Auteur
 

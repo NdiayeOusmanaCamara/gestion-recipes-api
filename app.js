@@ -1,6 +1,6 @@
 
 import express from "express";
-import recipeRoutes from "./routes/index.js";
+import recipeRoutes from "./src/routes/index.js";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
 
@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(recipeRoutes);
 
-const PORT = process.env.NODE_DOCKER_PORT || 3070;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`L'application est en ecoute sur port ${PORT}`);
 });

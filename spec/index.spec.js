@@ -4,7 +4,7 @@ describe("Recipe tests", () => {
   let recipeId = null;
 
   it("can be create", async () => {
-    const recipe = { titre: "crepe", type: "dessert", ingredient: "farime" };
+    const recipe = { titre: "", type: "", ingredient: "" };
     const result = await Recipe.createRecipe(
       recipe.titre,
       recipe.type,
