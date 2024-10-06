@@ -185,13 +185,9 @@ Ce projet utilise Docker pour la containerisation, ce qui permet de déployer fa
 ## Instructions pour Docker :
 
 - **Lien vers l'image DockerHub:** [image Docker](https://hub.docker.com/r/ndiayecousmaneamara24/recipes)
-- **Pour construire le conteneurs Docker:**
+- **Pour construire  et  lancer le conteneurs Docker utiliser cette commande:**
 ```
  docker-compose up --build 
-```
-- **Pour lancer docker utiliser cette commande:**
-```
-docker-compose up
 ```
 
 - **Connexion au service MySQL:**
